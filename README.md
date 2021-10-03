@@ -3,4 +3,4 @@ Repo for Canva.com clone using KonvaJS with basic features where images and text
 
 
 ### Live App
-www.gixler.netlify.app
+https://gixler.netlify.app/
