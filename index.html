@@ -9,50 +9,50 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div>
       <!-- Tools section -->
       <div class="tools grid m-2">
         <div class="tools-header row">
-          <h1 class="tools-heading col-3">Photo Editor</h1>
-            <div class="dropdown col">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+          <h1 class="tools-heading navbar-brand col">Photo Editor</h1>
+            <div class="dropdown col-2">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                 Add shape
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Line</button></li>
-                <li><button class="dropdown-item" id="button" type="button">Circle</button></li>
-                <li><button class="dropdown-item" type="button">Rectangle</button></li>
-                <li><button class="dropdown-item" type="button">Triangle</button></li>
-                <li><button class="dropdown-item" type="button">Star</button></li>
-                <li><button class="dropdown-item" type="button">Arc</button></li>
-                <li><button class="dropdown-item" type="button">Ellipse</button></li>
+              <ul class="dropdown-menu mt-2 border-2 border-dark rounded" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" id="addText" type="button">Text</button></li>
+                <li><button class="dropdown-item" id="addLine" type="button">Line</button></li>
+                <li><button class="dropdown-item" id="addCircle" type="button">Circle</button></li>
+                <li><button class="dropdown-item" id="addRectangle" type="button">Rectangle</button></li>
+                <li><button class="dropdown-item" id="addRing" type="button">Ring</button></li>
+                <li><button class="dropdown-item" id="addStar" type="button">Star</button></li>
+                <li><button class="dropdown-item" id="addArc" type="button">Arc</button></li>
+                <li><button class="dropdown-item" id="addEllipse" type="button">Ellipse</button></li>
               </ul>
             </div>
-            <div class="dropdown col">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown col-2">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                 Edit shape
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <ul class="dropdown-menu mt-2 border-2 border-dark rounded" aria-labelledby="dropdownMenu2">
                 <li><button class="dropdown-item" type="button">Resize</button></li>
                 <li><button class="dropdown-item" type="button">Rotate</button></li>
                 <li><button class="dropdown-item" type="button">Blur</button></li>
               </ul>
             </div>
-            <div class="dropdown col">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown col-2">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                 Download
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <ul class="dropdown-menu mt-2 border-2 border-dark rounded" aria-labelledby="dropdownMenu2">
                 <li><button class="dropdown-item" id="save" type="button">As PNG</button></li>
               </ul>
             </div>
         </div>
       </div>
       
+
+      <input id="slider" type="range" min="-1" max="1" step="0.05" value="0" />
       <!-- XY Canvas Below -->
       <div id="canvas"></div>
-    </div>
-
 
 
     <script src="/app.js"></script>

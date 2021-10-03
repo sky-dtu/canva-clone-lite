@@ -31,54 +31,52 @@ var layer = new Konva.Layer();
 // arr_shapes.push(circle);
 
 
-var rect1 = new Konva.Rect({
-    x: 60,
-    y: 60,
-    width: 100,
-    height: 90,
-    fill: 'red',
-    draggable: true,
+// var rect1 = new Konva.Rect({
+//     x: 60,
+//     y: 60,
+//     width: 100,
+//     height: 90,
+//     fill: 'red',
+//     draggable: true,
     
-    name: 'select',
-});
-layer.add(rect1);
+//     name: 'select',
+// });
+// layer.add(rect1);
 
-arr_shapes.push(rect1);
+// arr_shapes.push(rect1);
 
-var rect2 = new Konva.Rect({
-    x: 250,
-    y: 100,
-    width: 150,
-    height: 90,
-    fill: 'green',
-    draggable: true,
+// var rect2 = new Konva.Rect({
+//     x: 250,
+//     y: 100,
+//     width: 150,
+//     height: 90,
+//     fill: 'green',
+//     draggable: true,
 
-    name: 'select',
-});
-layer.add(rect2);
+//     name: 'select',
+// });
+// layer.add(rect2);
 
-arr_shapes.push(rect2);
+// arr_shapes.push(rect2);
 
 
 
 // ###################################################
 
 
+document.getElementById('addCircle').addEventListener('click', addCircle);
+document.getElementById('addLine').addEventListener('click', addLine);
+document.getElementById('addRectangle').addEventListener('click', addRectangle);
+document.getElementById('addEllipse').addEventListener('click', addEllipse);
+document.getElementById('addArc').addEventListener('click', addArc);
+document.getElementById('addStar').addEventListener('click', addStar);
+document.getElementById('addRing').addEventListener('click', addRing);
+document.getElementById('addText').addEventListener('click', addText);
 
-// var group = new Konva.Group({
-//     x: width/2,
-//     y: 50,
-//     draggable: true,
-// });
-// layer.add(group);
-
-
-document.getElementById('button').addEventListener('click', addShape);
-
-function addShape() {
+function addCircle() {
     let circle = new Konva.Circle({
-        x: Math.random() * 100,
-        y: Math.random() * 100,
+        x: stage.width() / 2 + Math.random() * 100,
+        y: stage.height() / 2 + Math.random() * 100,
         radius: 100,
         fill: 'green',
         draggable: true,
@@ -90,6 +88,126 @@ function addShape() {
     layer.add(circle);
 }
 
+function addRectangle() {
+    let rect = new Konva.Rect({
+        x: stage.width() / 2 + Math.random() * 100,
+        y: stage.height() / 2 + Math.random() * 100,
+        width: 300,
+        height: 150,
+        fill: 'green',
+
+        draggable: true,
+        name: 'select'
+    });
+    
+    arr_shapes.push(rect);
+    layer.add(rect);
+}
+
+function addEllipse() {
+    let oval = new Konva.Ellipse({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        radiusX: 100,
+        radiusY: 50,
+        fill: 'green',
+
+        draggable: true,
+        name: 'select',
+    });
+    
+    arr_shapes.push(oval);
+    layer.add(oval);
+}
+
+
+function addLine() {
+    let line = new Konva.Line({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        points: [5, 100, 500, 100, 5, 100],
+        stroke: 'black',
+        strokeWidth: 4,
+
+        draggable: true,
+        name: 'select',
+    });
+    
+    arr_shapes.push(line);
+    layer.add(line);
+}
+
+function addArc() {
+    let arc = new Konva.Arc({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        innerRadius: 140,
+        outerRadius: 170,
+        angle: 90,
+        fill: 'green',
+        // stroke: 'black',
+
+        draggable: true,
+        name: 'select',
+    });
+    
+    arr_shapes.push(arc);
+    layer.add(arc);
+}
+
+
+function addRing() {
+    let ring = new Konva.Ring({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        innerRadius: 40,
+        outerRadius: 70,
+        fill: 'green',
+        // stroke: 'black',
+
+        draggable: true,
+        name: 'select',
+    });
+    
+    arr_shapes.push(ring);
+    layer.add(ring);
+}
+
+
+function addStar() {
+    let star = new Konva.Star({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        numPoints: 6,
+        innerRadius: 40,
+        outerRadius: 70,
+        fill: 'green',
+        // stroke: 'black',
+
+        draggable: true,
+        name: 'select',
+    });
+    
+    arr_shapes.push(star);
+    layer.add(star);
+}
+
+function addText() {
+    let text = new Konva.Text({
+        x: stage.width() / 2,
+        y: 15,
+        text: 'Add your Text here',
+        fontSize: 30,
+        fontFamily: 'Cambria',
+        fill: 'green',
+
+        draggable: true,
+        name: 'select',
+    });
+    
+    arr_shapes.push(text);
+    layer.add(text);
+}
 
 
 // ###################################################
@@ -99,7 +217,7 @@ function addShape() {
 
 
 var tr = new Konva.Transformer({
-    centeredScaling: false,
+    ignoreStroke: true,
 });
 layer.add(tr);
 
@@ -214,28 +332,8 @@ stage.on('click tap', function (e) {
 
 // events
 
-// circle.on('mouseover', function () {
-//     document.body.style.cursor = 'pointer';
-// });
-
-// circle.on('mouseout', function () {
-//     document.body.style.cursor = 'default';
-// });
-
-// circle.on ('mouseup', function() {
-//     this.fill('red');
-//     this.stroke('blue');
-// })
-
-// circle.on ('mousedown', function() {
-//     this.fill('blue');
-//     this.stroke('green');
-//     this.opacity(0.6);
-// })
-
 
 // add the shape to the layer
-// layer.add(circle);
 
 // add the layer to the stage
 stage.add(layer);
@@ -262,9 +360,11 @@ layer.draw();
 
 
 
-// ##############################################
-// ################## SAVE ######################
-// ##############################################
+
+
+// ####################################################
+// ################## SAVE IMAGE ######################
+// ####################################################
 
 
 
