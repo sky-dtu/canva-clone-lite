@@ -30,3 +30,11 @@ body {
     margin-bottom: 10px;
     /* height: 500px;   */
 }
+
+#footer {
+    background-color: white;
+    margin-top: 40px;
+    padding-top: 40px;
+    color: black;
+    font-weight: bolder;
+}
