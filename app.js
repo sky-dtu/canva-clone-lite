@@ -68,7 +68,9 @@ arr_shapes.push(rect2);
 // ###################################################
 
 
-var tr = new Konva.Transformer();
+var tr = new Konva.Transformer({
+    centeredScaling: false,
+});
 layer.add(tr);
 
 
@@ -79,6 +81,7 @@ tr.nodes(arr_shapes);
 // add a new feature, lets add ability to draw selection rectangle
 var selectionRectangle = new Konva.Rect({
     fill: '#cce0ff',
+    opacity: 0.4,
     stroke: 'black',
     visible: false,
 });
