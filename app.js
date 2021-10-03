@@ -18,19 +18,17 @@ var layer = new Konva.Layer();
 
 // shape
 
-var circle = new Konva.Circle({
-    x: stage.width() / 2,
-    y: stage.height() / 2,
-    radius: 100,
-    fill: 'green',
-    stroke: 'red',
-    strokeWidth: 10,
-    draggable: true,
+// var circle = new Konva.Circle({
+//     x: stage.width() / 2,
+//     y: stage.height() / 2,
+//     radius: 100,
+//     fill: 'green',
+//     draggable: true,
 
-    name: 'select'
-});
+//     name: 'select'
+// });
 
-arr_shapes.push(circle);
+// arr_shapes.push(circle);
 
 
 var rect1 = new Konva.Rect({
@@ -60,6 +58,38 @@ var rect2 = new Konva.Rect({
 layer.add(rect2);
 
 arr_shapes.push(rect2);
+
+
+
+// ###################################################
+
+
+
+// var group = new Konva.Group({
+//     x: width/2,
+//     y: 50,
+//     draggable: true,
+// });
+// layer.add(group);
+
+
+document.getElementById('button').addEventListener('click', addShape);
+
+function addShape() {
+    let circle = new Konva.Circle({
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        radius: 100,
+        fill: 'green',
+        draggable: true,
+    
+        name: 'select'
+    });
+    
+    arr_shapes.push(circle);
+    layer.add(circle);
+}
+
 
 
 // ###################################################
@@ -184,33 +214,58 @@ stage.on('click tap', function (e) {
 
 // events
 
-circle.on('mouseover', function () {
-    document.body.style.cursor = 'pointer';
-});
+// circle.on('mouseover', function () {
+//     document.body.style.cursor = 'pointer';
+// });
 
-circle.on('mouseout', function () {
-    document.body.style.cursor = 'default';
-});
+// circle.on('mouseout', function () {
+//     document.body.style.cursor = 'default';
+// });
 
-circle.on ('mouseup', function() {
-    this.fill('red');
-    this.stroke('blue');
-})
+// circle.on ('mouseup', function() {
+//     this.fill('red');
+//     this.stroke('blue');
+// })
 
-circle.on ('mousedown', function() {
-    this.fill('blue');
-    this.stroke('green');
-    this.opacity(0.6);
-})
+// circle.on ('mousedown', function() {
+//     this.fill('blue');
+//     this.stroke('green');
+//     this.opacity(0.6);
+// })
 
 
 // add the shape to the layer
-layer.add(circle);
+// layer.add(circle);
 
 // add the layer to the stage
 stage.add(layer);
 
 layer.draw();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ##############################################
+// ################## SAVE ######################
+// ##############################################
+
 
 
 function downloadURI(uri, name) {
