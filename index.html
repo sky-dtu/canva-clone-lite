@@ -2,17 +2,18 @@
 <html>
   <head>
     <script src="https://unpkg.com/konva@8.2.1/konva.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- <script src="app.js"></script> -->
     <meta charset="utf-8" />
-    <title>Konva Circle Demo</title>
+    <title>Gixler Editor</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
       <!-- Tools section -->
       <div class="tools grid m-2">
         <div class="tools-header row">
-          <h1 class="tools-heading navbar-brand col">Photo Editor</h1>
+          <h1 class="tools-heading navbar-brand col">Gixler Editor</h1>
             <div class="dropdown col-2">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                 Add shape
@@ -28,7 +29,7 @@
                 <li><button class="dropdown-item" id="addEllipse" type="button">Ellipse</button></li>
               </ul>
             </div>
-            <div class="dropdown col-2">
+            <!-- <div class="dropdown col-2">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                 Edit shape
               </button>
@@ -37,7 +38,7 @@
                 <li><button class="dropdown-item" type="button">Rotate</button></li>
                 <li><button class="dropdown-item" type="button">Blur</button></li>
               </ul>
-            </div>
+            </div> -->
             <div class="dropdown col-2">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                 Download
@@ -50,9 +51,8 @@
       </div>
       
 
-      <input id="slider" type="range" min="-1" max="1" step="0.05" value="0" />
-      <!-- XY Canvas Below -->
-      <div id="canvas"></div>
+    <!-- XY Canvas Below -->
+    <div id="canvas"></div>
 
 
     <script src="/app.js"></script>

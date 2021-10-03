@@ -1,68 +1,24 @@
 var width = window.innerWidth;
-var height = window.innerHeight-50;
+var height = window.innerHeight;
 
 
 const arr_shapes = [];
 
 // stage
-
 var stage = new Konva.Stage({
     container: 'canvas',
-    width: width,
-    height: height,
+    width: 0.94*width,
+    height: 0.65*height,
 });
 
+
 // layer
-
 var layer = new Konva.Layer();
-
-// shape
-
-// var circle = new Konva.Circle({
-//     x: stage.width() / 2,
-//     y: stage.height() / 2,
-//     radius: 100,
-//     fill: 'green',
-//     draggable: true,
-
-//     name: 'select'
-// });
-
-// arr_shapes.push(circle);
-
-
-// var rect1 = new Konva.Rect({
-//     x: 60,
-//     y: 60,
-//     width: 100,
-//     height: 90,
-//     fill: 'red',
-//     draggable: true,
-    
-//     name: 'select',
-// });
-// layer.add(rect1);
-
-// arr_shapes.push(rect1);
-
-// var rect2 = new Konva.Rect({
-//     x: 250,
-//     y: 100,
-//     width: 150,
-//     height: 90,
-//     fill: 'green',
-//     draggable: true,
-
-//     name: 'select',
-// });
-// layer.add(rect2);
-
-// arr_shapes.push(rect2);
-
 
 
 // ###################################################
-
+// ################# CREATING SHAPES #################
+// ###################################################
 
 document.getElementById('addCircle').addEventListener('click', addCircle);
 document.getElementById('addLine').addEventListener('click', addLine);
@@ -72,6 +28,8 @@ document.getElementById('addArc').addEventListener('click', addArc);
 document.getElementById('addStar').addEventListener('click', addStar);
 document.getElementById('addRing').addEventListener('click', addRing);
 document.getElementById('addText').addEventListener('click', addText);
+
+
 
 function addCircle() {
     let circle = new Konva.Circle({
@@ -86,6 +44,7 @@ function addCircle() {
     
     arr_shapes.push(circle);
     layer.add(circle);
+    circle.cache();
 }
 
 function addRectangle() {
@@ -102,6 +61,7 @@ function addRectangle() {
     
     arr_shapes.push(rect);
     layer.add(rect);
+    rect.cache();
 }
 
 function addEllipse() {
@@ -118,14 +78,14 @@ function addEllipse() {
     
     arr_shapes.push(oval);
     layer.add(oval);
+    oval.cache();
 }
-
 
 function addLine() {
     let line = new Konva.Line({
         x: stage.width() / 2,
         y: stage.height() / 2,
-        points: [5, 100, 500, 100, 5, 100],
+        points: [5, 100, 500, 150, 5, 100],
         stroke: 'black',
         strokeWidth: 4,
 
@@ -135,6 +95,7 @@ function addLine() {
     
     arr_shapes.push(line);
     layer.add(line);
+    line.cache();
 }
 
 function addArc() {
@@ -153,8 +114,8 @@ function addArc() {
     
     arr_shapes.push(arc);
     layer.add(arc);
+    arc.cache();
 }
-
 
 function addRing() {
     let ring = new Konva.Ring({
@@ -171,8 +132,8 @@ function addRing() {
     
     arr_shapes.push(ring);
     layer.add(ring);
+    ring.cache();
 }
-
 
 function addStar() {
     let star = new Konva.Star({
@@ -190,6 +151,7 @@ function addStar() {
     
     arr_shapes.push(star);
     layer.add(star);
+    star.cache();
 }
 
 function addText() {
@@ -207,12 +169,12 @@ function addText() {
     
     arr_shapes.push(text);
     layer.add(text);
+    text.cache();
 }
 
 
 // ###################################################
-// ###################################################
-// ###################################################
+// ################### TRANSFORM #####################
 // ###################################################
 
 
@@ -330,30 +292,14 @@ stage.on('click tap', function (e) {
 
 
 
-// events
-
-
-// add the shape to the layer
-
 // add the layer to the stage
 stage.add(layer);
 
 layer.draw();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+var json = stage.toJSON();
+console.log(json);
 
 
 
@@ -368,10 +314,10 @@ layer.draw();
 
 
 
-function downloadURI(uri, name) {
+function downloadURI(url, name) {
     var link = document.createElement('a');
     link.download = name;
-    link.href = uri;
+    link.href = url;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -379,11 +325,9 @@ function downloadURI(uri, name) {
 }
 
 
-document.getElementById('save').addEventListener(
-    'click',
-    function () {
-      var dataURL = stage.toDataURL({ pixelRatio: 4 });
-      downloadURI(dataURL, 'stage.jpg');
+document.getElementById('save').addEventListener('click', function () {
+      var dataURL = stage.toDataURL({ pixelRatio: 3 });
+      downloadURI(dataURL, 'download.png');
     },
     false
 );
